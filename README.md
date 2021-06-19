@@ -29,6 +29,12 @@ The TODO API server is in the folder [server](./server). To start it at port 300
 
 See the tests in [cypress/integration/spec.js](./cypress/integration/spec.js)
 
+To start the server, the Expo app, and Cypress use:
+
+```text
+$ npm run dev
+```
+
 ## Attribution
 
 This code was originally copied from [stassop/ReactNativeTodo](https://github.com/stassop/ReactNativeTodo). The original unit and integration tests were described in the blog post [Quick Guide to React Native Testing](https://stassop.medium.com/quick-guide-to-react-native-testing-a5a830223c9e) by [Stanislav Sopov](https://github.com/stassop).
