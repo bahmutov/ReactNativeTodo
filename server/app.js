@@ -92,6 +92,15 @@ const deleteTodo = async (req, res, next) => {
   }
 };
 
+const deleteAll = async (req, res, next) => {
+  try {
+    await writeTodos([]);
+    setTimeout(() => res.json([]), TIMEOUT);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const toggleTodo = async (req, res, next) => {
   const {id, done} = req.body;
   try {
@@ -118,6 +127,8 @@ app.get('/', fetchTodos);
 app.post('/create', createTodo);
 app.post('/delete', deleteTodo);
 app.post('/toggle', toggleTodo);
+// new method for tests to use
+app.post('/delete-all', deleteAll);
 app.use(handleError);
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));

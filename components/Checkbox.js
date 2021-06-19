@@ -4,8 +4,11 @@ import {MaterialIcons} from '@expo/vector-icons';
 
 import {Colors} from './Styles';
 
-export const Checkbox = ({onChange, checked, disabled}) => (
-  <TouchableOpacity disabled={disabled} onPress={() => onChange(!checked)}>
+export const Checkbox = ({onChange, checked, disabled, testID}) => (
+  <TouchableOpacity
+    testID={testID}
+    disabled={disabled}
+    onPress={() => onChange(!checked)}>
     {checked ? (
       <MaterialIcons
         name="radio-button-checked"

@@ -31,6 +31,7 @@ export const CreateTodo = () => {
   return (
     <View style={styles.container}>
       <TextInput
+        testID="add-todo"
         value={text}
         ref={inputRef}
         style={styles.textInput}
@@ -39,6 +40,7 @@ export const CreateTodo = () => {
         onSubmitEditing={create}
       />
       <TouchableOpacity
+        testID="add"
         onPress={create}
         disabled={creating}
         style={[styles.button, creating && styles.disabled]}>

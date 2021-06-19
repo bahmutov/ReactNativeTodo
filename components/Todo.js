@@ -6,7 +6,6 @@ import {MaterialCommunityIcons} from '@expo/vector-icons';
 
 import {Colors, Fonts, FontSizes} from './Styles';
 import {Checkbox} from './Checkbox';
-import {IconButton} from './IconButton';
 
 import * as Actions from '../actions';
 
@@ -16,8 +15,16 @@ export const Todo = ({id, text, done, progress}) => {
   const toggle = checked => dispatch(Actions.toggleTodo(id, checked));
 
   return (
-    <View style={styles.container}>
-      <Checkbox checked={done} disabled={progress} onChange={toggle} />
+    <View
+      style={styles.container}
+      testID="todo"
+      accessibilityLabel={done ? 'completed' : 'incomplete'}>
+      <Checkbox
+        testID="toggle"
+        checked={done}
+        disabled={progress}
+        onChange={toggle}
+      />
       <Text
         numberOfLines={1}
         ellipsizeMode="tail"
@@ -25,6 +32,7 @@ export const Todo = ({id, text, done, progress}) => {
         {text}
       </Text>
       <MaterialCommunityIcons
+        testID="delete"
         name="trash-can"
         size={32}
         color={Colors.buttonActive}

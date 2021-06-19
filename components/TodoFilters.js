@@ -1,38 +1,35 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 
-import { Colors, Fonts, FontSizes } from './Styles';
+import {Colors, Fonts, FontSizes} from './Styles';
 import * as Actions from '../actions';
 
-export const TodoFilter = ({ filter, selected, select }) => (
+export const TodoFilter = ({filter, selected, select}) => (
   <TouchableOpacity
-    onPress={ () => select(filter) }
-    style={[ styles.filter, selected && styles.selected ]}
-  >
-    <Text style={ styles.filterText }>
-      { filter }
-    </Text>
+    testID="filter"
+    onPress={() => select(filter)}
+    style={[styles.filter, selected && styles.selected]}>
+    <Text style={styles.filterText}>{filter}</Text>
   </TouchableOpacity>
 );
 
 export const TodoFilters = () => {
   const dispatch = useDispatch();
   const selectedFilter = useSelector(state => state.filter);
-  const select = (filter) => dispatch(Actions.filterTodos(filter));
-  const filters = [ 'All', 'Active', 'Done' ];
+  const select = filter => dispatch(Actions.filterTodos(filter));
+  const filters = ['All', 'Active', 'Done'];
 
   return (
-    <View style={ styles.container }>
-      { filters.map((filter, index) => (
-          <TodoFilter
-            key={ index }
-            filter={ filter }
-            select={ select }
-            selected={ filter === selectedFilter }
-          />
-        ))
-      }
+    <View style={styles.container}>
+      {filters.map((filter, index) => (
+        <TodoFilter
+          key={index}
+          filter={filter}
+          select={select}
+          selected={filter === selectedFilter}
+        />
+      ))}
     </View>
   );
 };

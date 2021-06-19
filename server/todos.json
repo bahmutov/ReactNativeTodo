@@ -1,1 +1,7 @@
-[{"text":"Second todo","id":1586687314149,"done":false},{"text":"Fourth todo","id":1593718867400,"done":false},{"text":"another one","id":1624132402293,"done":false},{"text":"nice","id":1624133692954,"done":false}]
+[
+  {
+    "text": "add Expo",
+    "id": 1624136307218,
+    "done": false
+  }
+]
