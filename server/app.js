@@ -8,11 +8,13 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use(cors({
-  'origin': '*',
-  'allowedHeaders': ['Content-Type', 'Accept'],
-  'methods': ['GET, POST']
-}));
+app.use(
+  cors({
+    origin: '*',
+    allowedHeaders: ['Content-Type', 'Accept'],
+    methods: ['GET, POST'],
+  }),
+);
 
 const PORT = 3000;
 const FILE = path.join(__dirname, './todos.json');
@@ -23,21 +25,20 @@ const readTodos = () => {
     fs.readFile(FILE, 'utf8', (err, todos) => {
       if (err) {
         reject(err);
-      }
-      else {
+      } else {
         resolve(JSON.parse(todos));
       }
     });
   });
 };
 
-const writeTodos = (todos) => {
+const writeTodos = todos => {
   return new Promise((resolve, reject) => {
-    fs.writeFile(FILE, JSON.stringify(todos), err => {
+    const str = JSON.stringify(todos, null, 2);
+    fs.writeFile(FILE, str + '\n', err => {
       if (err) {
         reject(err);
-      }
-      else {
+      } else {
         resolve(todos);
       }
     });
@@ -48,14 +49,13 @@ const fetchTodos = async (req, res, next) => {
   try {
     const todos = await readTodos();
     setTimeout(() => res.json(todos), TIMEOUT);
-  }
-  catch (err) {
+  } catch (err) {
     next(err);
   }
 };
 
 const createTodo = async (req, res, next) => {
-  const { text } = req.body;
+  const {text} = req.body;
   try {
     if (!text) {
       throw Error('No text provided!');
@@ -64,21 +64,19 @@ const createTodo = async (req, res, next) => {
     let todo = todos.find(todo => todo.text === text);
     if (todo) {
       throw Error('Todo already exists!');
-    }
-    else {
-      todo = { text, id: Date.now(), done: false };
+    } else {
+      todo = {text, id: Date.now(), done: false};
       todos.push(todo);
       await writeTodos(todos);
       setTimeout(() => res.json(todo), TIMEOUT);
     }
-  }
-  catch (err) {
+  } catch (err) {
     next(err);
   }
 };
 
 const deleteTodo = async (req, res, next) => {
-  const { id } = req.body;
+  const {id} = req.body;
   try {
     let todos = await readTodos();
     let todo = todos.find(todo => todo.id === id);
@@ -86,18 +84,16 @@ const deleteTodo = async (req, res, next) => {
       todos = todos.filter(todo => todo.id !== id);
       await writeTodos(todos);
       setTimeout(() => res.json(todo), TIMEOUT);
-    }
-    else {
+    } else {
       throw Error('Todo not found!');
     }
-  }
-  catch (err) {
+  } catch (err) {
     next(err);
   }
 };
 
 const toggleTodo = async (req, res, next) => {
-  const { id, done } = req.body;
+  const {id, done} = req.body;
   try {
     let todos = await readTodos();
     let todo = todos.find(todo => todo.id === id);
@@ -105,19 +101,17 @@ const toggleTodo = async (req, res, next) => {
       todo.done = done;
       await writeTodos(todos);
       setTimeout(() => res.json(todo), TIMEOUT);
-    }
-    else {
+    } else {
       throw Error('Todo not found!');
     }
-  }
-  catch (err) {
+  } catch (err) {
     next(err);
   }
 };
 
 const handleError = (err, req, res, next) => {
   // console.error(err);
-  res.status(500).json({ error: err.message });
+  res.status(500).json({error: err.message});
 };
 
 app.get('/', fetchTodos);

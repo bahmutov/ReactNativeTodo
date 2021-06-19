@@ -1,15 +1,33 @@
-import React, { useEffect } from 'react';
-import { SafeAreaView, StyleSheet, ActivityIndicator, FlatList } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {useEffect} from 'react';
+import {
+  SafeAreaView,
+  StyleSheet,
+  ActivityIndicator,
+  FlatList,
+} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import AppLoading from 'expo-app-loading';
+import {
+  useFonts,
+  Montserrat_400Regular,
+  Montserrat_500Medium,
+  Montserrat_700Bold,
+} from '@expo-google-fonts/montserrat';
 
-import { Todo } from './Todo';
-import { CreateTodo } from './CreateTodo';
-import { TodoFilters } from './TodoFilters';
-import { Colors } from './Styles';
+import {Todo} from './Todo';
+import {CreateTodo} from './CreateTodo';
+import {TodoFilters} from './TodoFilters';
+import {Colors} from './Styles';
 
 import * as Actions from '../actions';
 
 export const TodoList = () => {
+  const [fontsLoaded] = useFonts({
+    Montserrat_400Regular,
+    Montserrat_500Medium,
+    Montserrat_700Bold,
+  });
+
   const dispatch = useDispatch();
   const todos = useSelector(state => state.todos);
   const filter = useSelector(state => state.filter);
@@ -31,30 +49,33 @@ export const TodoList = () => {
     return () => dispatch(Actions.toggleTodoCancel());
   }, []);
 
-  const renderItem = ({ item }) => (
-    <Todo { ...item } />
-  );
+  const renderItem = ({item}) => <Todo {...item} />;
 
-  const keyExtractor = (item) => item.id;
+  const keyExtractor = item => item.id;
 
   const getItemLayout = (item, index) => {
     const itemHeight = 60;
-    return { length: itemHeight, offset: itemHeight * index, index };
+    return {length: itemHeight, offset: itemHeight * index, index};
   };
 
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
-    <SafeAreaView style={ styles.container }>
+    <SafeAreaView style={styles.container}>
       <CreateTodo />
       <TodoFilters />
-      { fetching
-        ? <ActivityIndicator size="large" color="gray" />
-        : <FlatList
-            data={ filteredTodos }
-            renderItem={ renderItem }
-            keyExtractor={ keyExtractor }
-            getItemLayout={ getItemLayout }
-          />
-      }
+      {fetching ? (
+        <ActivityIndicator size="large" color="gray" />
+      ) : (
+        <FlatList
+          data={filteredTodos}
+          renderItem={renderItem}
+          keyExtractor={keyExtractor}
+          getItemLayout={getItemLayout}
+        />
+      )}
     </SafeAreaView>
   );
 };

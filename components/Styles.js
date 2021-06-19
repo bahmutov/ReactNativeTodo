@@ -17,8 +17,8 @@ export const FontSizes = Object.freeze({
 });
 
 export const Fonts = Object.freeze({
-  bold: 'Montserrat-Bold',
-  medium: 'Montserrat-Medium',
-  regular: 'Montserrat-Regular',
+  bold: 'Montserrat_700Bold',
+  medium: 'Montserrat_500Medium',
+  regular: 'Montserrat_400Regular',
   icon: 'MaterialIcons-Regular',
 });

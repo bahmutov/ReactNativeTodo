@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: Colors.buttonText,
-    fontFamily: Fonts.medium,
+    fontFamily: Fonts.bold,
     fontSize: FontSizes.body,
   },
 });
