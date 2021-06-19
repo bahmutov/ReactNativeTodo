@@ -2,6 +2,7 @@
   "name": "ReactNativeTodo",
   "version": "0.0.1",
   "private": true,
+  "description": "Example testing ReactNative Todo app using Cypress",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",

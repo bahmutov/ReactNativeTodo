@@ -1,6 +1,9 @@
 # ReactNativeTodo
+> Example testing ReactNative Todo app using Cypress
 
 This code was originally copied from [stassop/ReactNativeTodo](https://github.com/stassop/ReactNativeTodo). The original unit and integration tests were described in the blog post [Quick Guide to React Native Testing](https://stassop.medium.com/quick-guide-to-react-native-testing-a5a830223c9e) by [Stanislav Sopov](https://github.com/stassop).
+
+For general advice on testing the ReactNative apps running using Expo using [Cypress.io](https://www.cypress.io) test runner, read [The Complete Guide to Testing React Native App Using Cypress](https://glebbahmutov.com/blog/testing-react-native-app-using-cypress/).
 
 ## Add Expo
 
@@ -16,6 +19,9 @@ $ npm i -D expo expo-cli react-native-web react-dom@17.0.1 babel-preset-expo
 + babel-preset-expo@8.3.0
 ```
 
+Then I started using Expo icons and fonts to make sure the app looks in the browser the same as on iOS.
+
 ## The server
 
 The TODO API server is in the folder [server](./server). To start it at port 3000 run `npm run start:server`.
+
