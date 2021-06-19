@@ -1,10 +1,10 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import { TextInput, TouchableOpacity } from 'react-native';
-import * as reactRedux from 'react-redux'
+import {TextInput, TouchableOpacity} from 'react-native';
+import * as reactRedux from 'react-redux';
 
 import * as Actions from '../../actions';
-import { CreateTodo } from '../../components/CreateTodo';
+import {CreateTodo} from '../../components/CreateTodo';
 
 // useDispatch() will be called by every test
 const useDispatchMock = jest.fn();
@@ -15,42 +15,40 @@ describe('CreateTodo', () => {
     const useRefMock = {
       current: {
         clear: jest.fn(),
-        focus: jest.fn()
-      }
+        focus: jest.fn(),
+      },
     };
     jest.spyOn(React, 'useRef').mockReturnValue(useRefMock); // TextInput ref
     // useSelector() mocks must be defined in the same order as the calls
-    jest.spyOn(reactRedux, 'useSelector')
+    jest
+      .spyOn(reactRedux, 'useSelector')
       .mockReturnValueOnce(null) // state.error
       .mockReturnValueOnce(false); // state.creating
 
     let renderer;
     // Wrap create() in act() for hooks to take effect
     TestRenderer.act(() => {
-      renderer = TestRenderer.create(
-        <CreateTodo />
-      );
+      renderer = TestRenderer.create(<CreateTodo />);
     });
     const root = renderer.root;
     const textInput = root.findByType(TextInput);
 
-    expect(textInput.props.value).toBe(null);
+    expect(textInput.props.value).toBe('');
     expect(useRefMock.current.clear).toHaveBeenCalled();
     expect(useRefMock.current.focus).toHaveBeenCalled();
   });
 
   it('Handles busy state', () => {
     // useSelector() mocks must be defined in the same order as the calls
-    jest.spyOn(reactRedux, 'useSelector')
+    jest
+      .spyOn(reactRedux, 'useSelector')
       .mockReturnValueOnce(null) // state.error
       .mockReturnValueOnce(true); // state.creating
 
     let renderer;
     // Wrap create() in act() for hooks to take effect
     TestRenderer.act(() => {
-      renderer = TestRenderer.create(
-        <CreateTodo />
-      );
+      renderer = TestRenderer.create(<CreateTodo />);
     });
     const root = renderer.root;
     const touchable = root.findByType(TouchableOpacity);
@@ -67,9 +65,7 @@ describe('CreateTodo', () => {
     let renderer;
     // Wrap create() in act() for hooks to take effect
     TestRenderer.act(() => {
-      renderer = TestRenderer.create(
-        <CreateTodo />
-      );
+      renderer = TestRenderer.create(<CreateTodo />);
     });
     const root = renderer.root;
     const textInput = root.findByType(TextInput);
