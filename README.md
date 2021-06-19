@@ -16,3 +16,6 @@ $ npm i -D expo expo-cli react-native-web react-dom@17.0.1 babel-preset-expo
 + babel-preset-expo@8.3.0
 ```
 
+## The server
+
+The TODO API server is in the folder [server](./server). To start it at port 3000 run `npm run start:server`.

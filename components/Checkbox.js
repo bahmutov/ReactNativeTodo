@@ -1,18 +1,24 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import {TouchableOpacity, StyleSheet} from 'react-native';
+import {MaterialIcons} from '@expo/vector-icons';
 
-import { Icon } from './Icon';
-import { Colors } from './Styles';
+import {Colors} from './Styles';
 
-export const Checkbox = ({ onChange, checked, disabled }) => (
-  <TouchableOpacity
-    disabled={ disabled }
-    onPress={ () => onChange(!checked) }
-  >
-    <Icon
-      icon={ checked ? 'radio_button_checked' : 'radio_button_unchecked' }
-      style={[ styles.icon, disabled && styles.disabled ]}
-    />
+export const Checkbox = ({onChange, checked, disabled}) => (
+  <TouchableOpacity disabled={disabled} onPress={() => onChange(!checked)}>
+    {checked ? (
+      <MaterialIcons
+        name="radio-button-checked"
+        size={32}
+        color={Colors.buttonActive}
+      />
+    ) : (
+      <MaterialIcons
+        name="radio-button-unchecked"
+        size={32}
+        color={Colors.buttonActive}
+      />
+    )}
   </TouchableOpacity>
 );
 
