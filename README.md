@@ -8,10 +8,11 @@ First, let's add [Expo](https://docs.expo.io/guides/running-in-the-browser/) to 
 
 ```text
 # match the React DOM version to the React version
-$ npm i -D expo expo-cli react-native-web react-dom@17.0.1
+$ npm i -D expo expo-cli react-native-web react-dom@17.0.1 babel-preset-expo
 + react-dom@17.0.1
 + react-native-web@0.17.0
 + expo-cli@4.5.2
 + expo@41.0.1
++ babel-preset-expo@8.3.0
 ```
 

@@ -1,45 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import { TouchableOpacity, TextInput, Text, View, StyleSheet } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {
+  TouchableOpacity,
+  TextInput,
+  Text,
+  View,
+  StyleSheet,
+} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 
 import * as Actions from '../actions';
-import { Colors, Fonts, FontSizes } from './Styles';
+import {Colors, Fonts, FontSizes} from './Styles';
 
 export const CreateTodo = () => {
   const inputRef = React.useRef(null); // Use React.useRef() to make it testable
   const dispatch = useDispatch();
   const error = useSelector(state => state.error);
   const creating = useSelector(state => state.creating);
-  const [ text, setText ] = useState(null);
+  const [text, setText] = useState('');
 
   const create = () => dispatch(Actions.createTodo(text));
 
   useEffect(() => {
     if (!error && !creating) {
-      setText(null);
+      setText('');
       inputRef.current.clear();
       inputRef.current.focus();
     }
-  }, [ error, creating ]);
+  }, [error, creating]);
 
   return (
-    <View style={ styles.container }>
+    <View style={styles.container}>
       <TextInput
-        value={ text }
-        ref={ inputRef }
-        style={ styles.textInput }
-        placeholder={ 'Add todo' }
-        onChangeText={ setText }
-        onSubmitEditing={ create }
+        value={text}
+        ref={inputRef}
+        style={styles.textInput}
+        placeholder={'Add todo'}
+        onChangeText={setText}
+        onSubmitEditing={create}
       />
       <TouchableOpacity
-        onPress={ create }
-        disabled={ creating }
-        style={[ styles.button, creating && styles.disabled ]}
-      >
-        <Text style={ styles.buttonText }>
-          { 'Add' }
-        </Text>
+        onPress={create}
+        disabled={creating}
+        style={[styles.button, creating && styles.disabled]}>
+        <Text style={styles.buttonText}>{'Add'}</Text>
       </TouchableOpacity>
     </View>
   );
