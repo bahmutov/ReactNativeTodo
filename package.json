@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "start:server": "npm start --prefix server",
     "web": "expo start --web",
     "test": "jest",
     "lint": "eslint ."

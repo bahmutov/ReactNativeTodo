@@ -1,0 +1,7 @@
+{
+  "name": "todo-server",
+  "private": true,
+  "scripts": {
+    "start": "node ./app"
+  }
+}
