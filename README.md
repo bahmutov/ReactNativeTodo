@@ -1,4 +1,4 @@
-# ReactNativeTodo [![ci status][ci image]][ci url]
+# ReactNativeTodo [![ci status][ci image]][ci url] ![cypress version](https://img.shields.io/badge/cypress-7.5.0-brightgreen)
 > Example testing ReactNative Todo app using Cypress
 
 ![A single test for the entire app](./images/todo-test.gif)
