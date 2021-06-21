@@ -2,5 +2,6 @@
   "fixturesFolder": false,
   "baseUrl": "http://localhost:19006",
   "viewportWidth": 400,
-  "viewportHeight": 660
+  "viewportHeight": 660,
+  "projectId": "hyr4ik"
 }

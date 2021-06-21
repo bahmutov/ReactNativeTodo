@@ -25,6 +25,9 @@ jobs:
           install: false
           command-prefix: 'percy exec -- npx'
           wait-on: 'http://localhost:19006'
+          record: true
+          group: all
         # inject the Percy token
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
