@@ -6,13 +6,6 @@ import {
   FlatList,
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import AppLoading from 'expo-app-loading';
-import {
-  useFonts,
-  Montserrat_400Regular,
-  Montserrat_500Medium,
-  Montserrat_700Bold,
-} from '@expo-google-fonts/montserrat';
 
 import {Todo} from './Todo';
 import {CreateTodo} from './CreateTodo';
@@ -22,12 +15,6 @@ import {Colors} from './Styles';
 import * as Actions from '../actions';
 
 export const TodoList = () => {
-  const [fontsLoaded] = useFonts({
-    Montserrat_400Regular,
-    Montserrat_500Medium,
-    Montserrat_700Bold,
-  });
-
   const dispatch = useDispatch();
   const todos = useSelector(state => state.todos);
   const filter = useSelector(state => state.filter);
@@ -57,10 +44,6 @@ export const TodoList = () => {
     const itemHeight = 60;
     return {length: itemHeight, offset: itemHeight * index, index};
   };
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
 
   return (
     <SafeAreaView style={styles.container}>
