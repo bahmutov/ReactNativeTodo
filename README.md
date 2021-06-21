@@ -2,6 +2,8 @@
 [![ci status][ci image]][ci url] [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/bahmutov/ReactNativeTodo) ![cypress version](https://img.shields.io/badge/cypress-7.5.0-brightgreen)
 > Example testing ReactNative Todo app using Cypress
 
+Read [Testing React Native Todo Application Using Cypress](https://glebbahmutov.com/blog/testing-rn-todo-app/)
+
 ![A single test for the entire app](./images/todo-test.gif)
 
 For general advice on testing the ReactNative apps running using Expo using [Cypress.io](https://www.cypress.io) test runner, read [The Complete Guide to Testing React Native App Using Cypress](https://glebbahmutov.com/blog/testing-react-native-app-using-cypress/).
