@@ -3,5 +3,9 @@
   "baseUrl": "http://localhost:19006",
   "viewportWidth": 400,
   "viewportHeight": 660,
-  "projectId": "hyr4ik"
+  "projectId": "hyr4ik",
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  }
 }
