@@ -1,4 +1,18 @@
 module.exports = {
   presets: ['babel-preset-expo'],
-  plugins: ['istanbul'],
+  plugins: [
+    'istanbul',
+    [
+      'module-resolver',
+      {
+        root: ['.'],
+        extensions: [
+          '.js',
+        ],
+        alias: {
+          '@': './',
+        },
+      },
+    ],
+  ],
 };

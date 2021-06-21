@@ -1,4 +1,4 @@
-import * as Api from '../api';
+import * as Api from '@/api';
 
 export const CREATE_TODO = 'CREATE_TODO';
 export const CREATE_TODO_ERROR = 'CREATE_TODO_ERROR';

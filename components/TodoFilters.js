@@ -3,7 +3,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {Colors, Fonts, FontSizes} from './Styles';
-import * as Actions from '../actions';
+import * as Actions from '@/actions';
 
 export const TodoFilter = ({filter, selected, select}) => (
   <TouchableOpacity

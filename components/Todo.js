@@ -7,7 +7,7 @@ import {MaterialCommunityIcons} from '@expo/vector-icons';
 import {Colors, Fonts, FontSizes} from './Styles';
 import {Checkbox} from './Checkbox';
 
-import * as Actions from '../actions';
+import * as Actions from '@/actions';
 
 export const Todo = ({id, text, done, progress}) => {
   const dispatch = useDispatch();

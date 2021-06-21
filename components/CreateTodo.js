@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
-import * as Actions from '../actions';
+import * as Actions from '@/actions';
 import {Colors, Fonts, FontSizes} from './Styles';
 
 export const CreateTodo = () => {
