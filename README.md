@@ -27,7 +27,7 @@ The TODO API server is in the folder [server](./server). To start it at port 300
 
 ## Cypress tests
 
-See the tests in [cypress/integration/spec.js](./cypress/integration/spec.js)
+See the tests in [cypress/integration](./cypress/integration) folder.
 
 To start the server, the Expo app, and Cypress use:
 
