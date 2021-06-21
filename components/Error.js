@@ -1,13 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { SafeAreaView, LayoutAnimation, StyleSheet, Platform, Text, UIManager, View } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {useSelector} from 'react-redux';
+import {
+  SafeAreaView,
+  LayoutAnimation,
+  StyleSheet,
+  Platform,
+  Text,
+  UIManager,
+  View,
+} from 'react-native';
 
-import { Colors, Fonts, FontSizes } from './Styles';
+import {Colors, Fonts, FontSizes} from './Styles';
 
 // Android LayoutAnimation fix
 if (Platform.OS === 'android') {
   UIManager.setLayoutAnimationEnabledExperimental &&
-  UIManager.setLayoutAnimationEnabledExperimental(true);
+    UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
 const animate = () => {
@@ -15,38 +23,38 @@ const animate = () => {
     duration: 200,
     create: {
       type: LayoutAnimation.Types.easeInEaseOut,
-      property: LayoutAnimation.Properties.opacity
+      property: LayoutAnimation.Properties.opacity,
     },
     update: {
       type: LayoutAnimation.Types.easeInEaseOut,
-      property: LayoutAnimation.Properties.opacity
+      property: LayoutAnimation.Properties.opacity,
     },
     delete: {
       type: LayoutAnimation.Types.easeInEaseOut,
-      property: LayoutAnimation.Properties.opacity
-    }
+      property: LayoutAnimation.Properties.opacity,
+    },
   };
   LayoutAnimation.configureNext(config);
 };
 
 export const Error = () => {
   const error = useSelector(state => state.error);
-  const [ visible, setVisible ] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     animate();
     setVisible(!!error);
-  }, [ error ]);
+  }, [error]);
 
   return (
     <>
-      { visible && error &&
-        <SafeAreaView style={ styles.container }>
-          <Text style={ styles.text }>
-            { error.message || error }
+      {visible && error && (
+        <SafeAreaView style={styles.container}>
+          <Text testID="error" style={styles.text}>
+            {error.message || error}
           </Text>
         </SafeAreaView>
-      }
+      )}
     </>
   );
 };
