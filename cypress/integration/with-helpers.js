@@ -22,7 +22,7 @@ describe('RN Todos with helpers', () => {
     cy.request('POST', 'http://localhost:3000/delete-all');
   });
 
-  it('adds todos', () => {
+  it.only('adds todos', () => {
     cy.visit('/');
     // using Enter works on the web
     byTestId('add-todo').should('have.focus').type('code RN app{enter}');
@@ -37,7 +37,12 @@ describe('RN Todos with helpers', () => {
 
     // a11y check
     cy.injectAxe();
-    cy.checkA11y();
+    cy.checkA11y(null, {
+      runOnly: {
+        type: 'tag',
+        values: ['cat.color'],
+      },
+    });
 
     cy.log('**complete item**');
     byTestId('todo', 'code RN').find(tid('toggle')).click();
@@ -50,6 +55,12 @@ describe('RN Todos with helpers', () => {
     );
 
     cy.percySnapshot('completed first item');
+    cy.checkA11y(null, {
+      runOnly: {
+        type: 'tag',
+        values: ['cat.color'],
+      },
+    });
 
     cy.log('**filters**');
     byTestId('filter', 'Active').click();
