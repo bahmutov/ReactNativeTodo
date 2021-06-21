@@ -19,10 +19,11 @@ const byTestId = (testId, text) => {
 
 describe('RN Todos with helpers', () => {
   beforeEach(() => {
+    // delete all existing todos on the server for clean start
     cy.request('POST', 'http://localhost:3000/delete-all');
   });
 
-  it.only('adds todos', () => {
+  it('adds todos', () => {
     cy.visit('/');
     // using Enter works on the web
     byTestId('add-todo').should('have.focus').type('code RN app{enter}');
