@@ -1,12 +1,14 @@
+const darkGray = '#484848';
+
 export const Colors = Object.freeze({
   background: 'white',
   buttonActive: 'blueviolet',
   buttonDisabled: 'lightgray',
-  buttonInactive: 'gray',
+  buttonInactive: darkGray,
   buttonText: 'white',
   error: 'crimson',
   todoActive: 'black',
-  todoDone: 'gray',
+  todoDone: darkGray,
 });
 
 export const FontSizes = Object.freeze({
