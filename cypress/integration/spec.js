@@ -16,6 +16,7 @@ describe('RN Todos', () => {
     cy.get('[data-testid=add-todo]').type('add Expo');
     cy.get('[data-testid=add]').click();
     cy.get('[data-testid=todo]').should('have.length', 2);
+
     cy.log('**complete item**');
     cy.contains('[data-testid=todo]', 'code RN')
       .find('[data-testid=toggle]')
@@ -31,6 +32,7 @@ describe('RN Todos', () => {
       'aria-label',
       'incomplete',
     );
+
     cy.log('**filters**');
     cy.contains('[data-testid=filter]', 'Active').click();
     cy.get('[data-testid=todo]').should('have.length', 1);
