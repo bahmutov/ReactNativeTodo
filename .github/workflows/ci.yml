@@ -7,6 +7,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      # https://github.com/actions/virtual-environments/issues/710
+      - name: Add emoji font 🤩
+        run: sudo apt-get install fonts-noto-color-emoji -y
+
       # install NPM dependencies and Cypress
       # https://github.com/cypress-io/github-action
       - name: Install 📦
