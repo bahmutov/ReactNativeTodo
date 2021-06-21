@@ -32,6 +32,9 @@ describe('RN Todos with helpers', () => {
     byTestId('add').click();
     byTestId('todo').should('have.length', 2);
 
+    // visual snapshot
+    cy.percySnapshot('two items');
+
     cy.log('**complete item**');
     byTestId('todo', 'code RN').find(tid('toggle')).click();
     byTestId('todo', 'code RN').should('have.attr', 'aria-label', 'completed');
@@ -41,6 +44,8 @@ describe('RN Todos with helpers', () => {
       'aria-label',
       'incomplete',
     );
+
+    cy.percySnapshot('completed first item');
 
     cy.log('**filters**');
     byTestId('filter', 'Active').click();
@@ -142,6 +147,8 @@ describe('RN Todos with helpers', () => {
       });
     // the original todo is still there
     byTestId('todo', 'write tests').should('be.visible');
+
+    cy.percySnapshot('server error on delete');
   });
 
   it('shows error on toggle', () => {

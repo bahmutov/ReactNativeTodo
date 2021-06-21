@@ -7,10 +7,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
+      # install NPM dependencies and Cypress
+      # https://github.com/cypress-io/github-action
+      - name: Install 📦
+        uses: cypress-io/github-action@v2
+        with:
+          runTests: false
+
+      # start the local server and Expo project
+      - name: Start the app 🚦
+        run: npm run web:server &
+
+      # run Cypress tests with Percy
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          start: npm run web:server
+          install: false
+          command-prefix: 'percy exec -- npx'
           wait-on: 'http://localhost:19006'
+        # inject the Percy token
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
