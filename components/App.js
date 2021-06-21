@@ -12,8 +12,8 @@ import {
   Montserrat_700Bold,
 } from '@expo-google-fonts/montserrat';
 
-import {rootReducer} from '../reducers';
-import {rootSaga} from '../sagas';
+import {rootReducer} from '@/reducers';
+import {rootSaga} from '@/sagas';
 
 import {Error} from './Error';
 import {TodoList} from './TodoList';

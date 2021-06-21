@@ -1,7 +1,7 @@
 import { actionChannel, call, flush, fork, put, race, take, takeEvery } from 'redux-saga/effects';
 
-import * as Api from '../api';
-import * as Actions from '../actions';
+import * as Api from '@/api';
+import * as Actions from '@/actions';
 
 export function* createTodo(action) {
   const { text } = action;
