@@ -1,4 +1,4 @@
-# ReactNativeTodo
+# ReactNativeTodo [![ci status][ci image]][ci url]
 > Example testing ReactNative Todo app using Cypress
 
 ![A single test for the entire app](./images/todo-test.gif)
@@ -38,3 +38,6 @@ $ npm run dev
 ## Attribution
 
 This code was originally copied from [stassop/ReactNativeTodo](https://github.com/stassop/ReactNativeTodo). The original unit and integration tests were described in the blog post [Quick Guide to React Native Testing](https://stassop.medium.com/quick-guide-to-react-native-testing-a5a830223c9e) by [Stanislav Sopov](https://github.com/stassop).
+
+[ci image]: https://github.com/bahmutov/ReactNativeTodo/workflows/e2e/badge.svg?branch=main
+[ci url]: https://github.com/bahmutov/ReactNativeTodo/actions
