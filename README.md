@@ -1,4 +1,5 @@
-# ReactNativeTodo [![ci status][ci image]][ci url] ![cypress version](https://img.shields.io/badge/cypress-7.5.0-brightgreen)
+# ReactNativeTodo
+[![ci status][ci image]][ci url] [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/bahmutov/ReactNativeTodo) ![cypress version](https://img.shields.io/badge/cypress-7.5.0-brightgreen)
 > Example testing ReactNative Todo app using Cypress
 
 ![A single test for the entire app](./images/todo-test.gif)
@@ -34,6 +35,10 @@ To start the server, the Expo app, and Cypress use:
 ```text
 $ npm run dev
 ```
+
+## Visual tests
+
+Using Percy.io, see [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/bahmutov/ReactNativeTodo)
 
 ## Attribution
 
