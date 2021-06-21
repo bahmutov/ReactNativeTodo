@@ -35,6 +35,10 @@ describe('RN Todos with helpers', () => {
     // visual snapshot
     cy.percySnapshot('two items');
 
+    // a11y check
+    cy.injectAxe();
+    cy.checkA11y();
+
     cy.log('**complete item**');
     byTestId('todo', 'code RN').find(tid('toggle')).click();
     byTestId('todo', 'code RN').should('have.attr', 'aria-label', 'completed');
