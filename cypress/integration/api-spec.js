@@ -3,6 +3,53 @@ import * as Api from '../../api';
 
 const {GET, POST} = Api;
 
+describe('network', () => {
+  // use cy.intercept command to spy on the
+  // actual network calls made by the code
+  it('creates todos', () => {
+    const apiUrl = 'http://localhost:3000';
+
+    cy.intercept(`${apiUrl}/`, req => {
+      // make sure the call is not cached by the browser
+      delete req.headers['if-none-match'];
+    })
+      .as('todos')
+      .then(() => {
+        // once we prepared the intercept
+        // make the call using the app code
+        Api.asyncRequest();
+      });
+    cy.wait('@todos').its('response.body').should('be.an', 'array');
+
+    // delete all items
+    cy.request('POST', `${apiUrl}/delete-all`).then(() => {
+      return Api.asyncRequest();
+    });
+    cy.wait('@todos').its('response.body').should('deep.equal', []);
+
+    // let's add a new item
+    const todo = {text: 'Todo'};
+    cy.then(() => {
+      return Api.asyncRequest(POST, 'create', todo);
+    });
+    // we can also add new async commands by wrapping
+    // the object and using cy.invoke method
+    cy.wrap(Api).invoke('fetchTodos');
+    // 1 todo item
+    cy.wait('@todos')
+      .its('response.body')
+      .should('have.length', 1)
+      .its(0)
+      // each new todo item gets a random ID
+      // and property "done: false" at start
+      .should('deep.include', todo)
+      .and(todo => {
+        expect(todo).to.have.property('id');
+        expect(todo).to.have.property('done', false);
+      });
+  });
+});
+
 describe('asyncRequest()', () => {
   // Cypress stubs are reset before each test
   beforeEach(() => {
