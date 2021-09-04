@@ -16,7 +16,7 @@
     "dev": "start-test web:server 19006 cy:open"
   },
   "dependencies": {
-    "@expo-google-fonts/montserrat": "0.1.0",
+    "@expo-google-fonts/montserrat": "0.2.0",
     "@expo/vector-icons": "12.0.5",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
