@@ -60,3 +60,4 @@ buck-out/
 .expo
 coverage/
 .nyc_output/
+ios

@@ -1,5 +1,5 @@
 # ReactNativeTodo
-[![ci status][ci image]][ci url] [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/bahmutov/ReactNativeTodo) ![cypress version](https://img.shields.io/badge/cypress-7.5.0-brightgreen)
+[![ci status][ci image]][ci url] [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/bahmutov/ReactNativeTodo) ![cypress version](https://img.shields.io/badge/cypress-7.5.0-brightgreen) [![renovate-app badge][renovate-badge]][renovate-app]
 > Example testing ReactNative Todo app using Cypress
 
 Read [Testing React Native Todo Application Using Cypress](https://glebbahmutov.com/blog/testing-rn-todo-app/)
@@ -48,3 +48,5 @@ This code was originally copied from [stassop/ReactNativeTodo](https://github.co
 
 [ci image]: https://github.com/bahmutov/ReactNativeTodo/workflows/e2e/badge.svg?branch=main
 [ci url]: https://github.com/bahmutov/ReactNativeTodo/actions
+[renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
+[renovate-app]: https://renovateapp.com/
