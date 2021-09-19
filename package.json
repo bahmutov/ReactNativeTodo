@@ -44,6 +44,7 @@
     "babel-plugin-istanbul": "^6.0.0",
     "babel-preset-expo": "^8.3.0",
     "concurrently": "^6.2.0",
+    "cyclope": "^1.4.0",
     "cypress": "^7.5.0",
     "cypress-axe": "^0.12.2",
     "eslint": "7.14.0",

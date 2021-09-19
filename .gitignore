@@ -61,3 +61,4 @@ buck-out/
 coverage/
 .nyc_output/
 ios
+output/

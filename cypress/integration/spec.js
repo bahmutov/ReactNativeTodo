@@ -1,4 +1,7 @@
+// @ts-check
 /// <reference types="cypress" />
+
+import {savePage} from 'cyclope';
 
 describe('RN Todos', () => {
   beforeEach(() => {
@@ -48,6 +51,8 @@ describe('RN Todos', () => {
     cy.get('[data-testid=todo]').should('not.exist');
     cy.contains('[data-testid=filter]', 'All').click();
     cy.get('[data-testid=todo]').should('have.length', 1);
-    cy.contains('[data-testid=todo]', 'add Expo').should('be.visible');
+    cy.contains('[data-testid=todo]', 'add Expo')
+      .should('be.visible')
+      .then(savePage('output'));
   });
 });
