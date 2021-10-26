@@ -47,7 +47,7 @@
     "cypress": "7.5.0",
     "cypress-axe": "0.13.0",
     "eslint": "7.14.0",
-    "expo": "43.0.0",
+    "expo": "43.0.1",
     "expo-cli": "4.12.10",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.64.0",
