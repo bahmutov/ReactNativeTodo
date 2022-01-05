@@ -45,7 +45,7 @@
     "babel-preset-expo": "9.0.2",
     "concurrently": "^6.2.0",
     "cypress": "7.5.0",
-    "cypress-axe": "0.13.0",
+    "cypress-axe": "0.14.0",
     "eslint": "7.14.0",
     "expo": "44.0.3",
     "expo-cli": "5.0.3",
