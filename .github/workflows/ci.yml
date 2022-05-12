@@ -5,12 +5,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # install NPM dependencies and Cypress
       # https://github.com/cypress-io/github-action
       - name: Install 📦
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v3
         with:
           runTests: false
 
@@ -20,7 +20,7 @@ jobs:
 
       # run Cypress tests with Percy
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v3
         with:
           install: false
           command-prefix: 'percy exec -- npx'
