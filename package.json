@@ -36,7 +36,7 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@cypress/code-coverage": "3.9.12",
-    "@percy/cli": "^1.0.0-beta.52",
+    "@percy/cli": "^1.1.4",
     "@percy/cypress": "3.1.1",
     "@react-native-community/eslint-config": "^2.0.0",
     "axe-core": "^4.2.2",
