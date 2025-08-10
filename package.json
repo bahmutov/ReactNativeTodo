@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@expo-google-fonts/montserrat": "0.2.2",
-    "@expo/vector-icons": "13.0.0",
+    "@expo/vector-icons": "14.1.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "expo-app-loading": "2.0.0",
